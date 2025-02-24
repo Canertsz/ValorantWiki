@@ -7,7 +7,11 @@ struct AgentResponse: Codable {
 }
 
 // MARK: - Data Object
-struct Agent: Codable {
+struct Agent: Codable, Equatable {
+    static func == (lhs: Agent, rhs: Agent) -> Bool {
+        return lhs.displayName == rhs.displayName
+    }
+    
     var uuid: String?
     var displayName: String?
     var description: String?

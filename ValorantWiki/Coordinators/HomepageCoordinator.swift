@@ -8,24 +8,36 @@
 import Foundation
 import UIKit
 
-class HomepageCoordinator: BaseCoordinator {
+protocol HomepageCoordinatorProtocol: Coordinator {
+    func navigateToAgentDetail(agent: Agent)
+}
+
+final class HomepageCoordinator: HomepageCoordinatorProtocol {
+    var navigationController: UINavigationController?
     
-    private let navigationController: UINavigationController
-    var viewModel: HomepageViewModelProtocol
-    
-    init(navigationController: UINavigationController, viewModel: HomepageViewModelProtocol) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
-        self.viewModel = viewModel
     }
     
-    override func start() {
-        viewModel.coordinator = self
+    func start() {
         let viewController = HomepageVC.instantiateViewController()
+        let repository = HomepageRepository()
+        let viewModel = HomepageViewModel(view: viewController,
+                                          repository: repository,
+                                          coordinator: self)
+        repository.delegate = viewModel
         viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+        
+        navigationController?.pushViewController(viewController,
+                                                 animated: true)
     }
     
-    func navigateToDetails() {
+    func navigateToAgentDetail(agent: Agent) {
+        let viewController = AgentDetailVC.instantiateViewController()
+        let viewModel = AgentDetailViewModel(agent: agent)
+        viewController.viewModel = viewModel
         
+        navigationController?.pushViewController(viewController,
+                                                 animated: true)
     }
 }

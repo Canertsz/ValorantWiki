@@ -10,8 +10,11 @@ import Foundation
 import Kingfisher
 
 final class AgentCell: UICollectionViewCell {
-    
-    var viewModel: AgentCellViewModelProtocol?
+    var viewModel: AgentCellViewModelProtocol? {
+        didSet {
+            configureUI()
+        }
+    }
     
     @IBOutlet weak var agentImageView: UIImageView!
     @IBOutlet weak var agentNameLabel: UILabel!
@@ -36,21 +39,16 @@ final class AgentCell: UICollectionViewCell {
         agentImageView.kf.indicatorType = .activity
     }
     
-    func loadAgent(with agent: Agent) {
+    private func configureUI() {
+        agentNameLabel.text = viewModel?.agentDisplayName
         
-        // viewModel?.configure(with agent: Agent)
-        
-        // move those configuration logic to cell's viewModel
-        agentNameLabel.text = agent.displayName
-        
-        if let agentPortrait = agent.fullPortrait {
-            let url = URL(string: agentPortrait)
-            agentImageView.kf.setImage(with: url)
+        if let imageURL = viewModel?.agentPortraitURL {
+            agentImageView.kf.setImage(with: imageURL)
         }
     }
     
     @IBAction func navigateToDetailButtonTapped(_ sender: Any) {
-        // viewModel?.navigateToDetailButtonTapped()
+        viewModel?.navigateToDetailButtonTapped()
     }
     
 }

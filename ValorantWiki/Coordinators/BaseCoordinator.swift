@@ -4,13 +4,9 @@
 //
 //  Created by Caner Tüysüz on 7.01.2025.
 //
+import UIKit
 
-protocol Coordinator {
+protocol Coordinator: AnyObject {
+    var navigationController: UINavigationController? { get set }
     func start()
-}
-
-class BaseCoordinator: Coordinator {
-    func start() {
-        fatalError("Start method must be implemented.")
-    }
 }

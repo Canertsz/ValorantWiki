@@ -10,8 +10,19 @@
 		3285ED5B2D328AD100B7B0D2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3285ED5A2D328AD100B7B0D2 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		32C05B4D2D5F438E00D98B1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 326CF76C2D15666C00862CCD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 326CF7732D15666C00862CCD;
+			remoteInfo = ValorantWiki;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		326CF7742D15666C00862CCD /* ValorantWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValorantWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32C05B492D5F438E00D98B1D /* ValorantWikiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValorantWikiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -33,6 +44,11 @@
 			path = ValorantWiki;
 			sourceTree = "<group>";
 		};
+		32C05B4A2D5F438E00D98B1D /* ValorantWikiTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ValorantWikiTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +60,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32C05B462D5F438E00D98B1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -51,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				326CF7762D15666C00862CCD /* ValorantWiki */,
+				32C05B4A2D5F438E00D98B1D /* ValorantWikiTests */,
 				326CF7752D15666C00862CCD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				326CF7742D15666C00862CCD /* ValorantWiki.app */,
+				32C05B492D5F438E00D98B1D /* ValorantWikiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +114,29 @@
 			productReference = 326CF7742D15666C00862CCD /* ValorantWiki.app */;
 			productType = "com.apple.product-type.application";
 		};
+		32C05B482D5F438E00D98B1D /* ValorantWikiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32C05B4F2D5F438E00D98B1D /* Build configuration list for PBXNativeTarget "ValorantWikiTests" */;
+			buildPhases = (
+				32C05B452D5F438E00D98B1D /* Sources */,
+				32C05B462D5F438E00D98B1D /* Frameworks */,
+				32C05B472D5F438E00D98B1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32C05B4E2D5F438E00D98B1D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				32C05B4A2D5F438E00D98B1D /* ValorantWikiTests */,
+			);
+			name = ValorantWikiTests;
+			packageProductDependencies = (
+			);
+			productName = ValorantWikiTests;
+			productReference = 32C05B492D5F438E00D98B1D /* ValorantWikiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -104,6 +152,10 @@
 				TargetAttributes = {
 					326CF7732D15666C00862CCD = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					32C05B482D5F438E00D98B1D = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 326CF7732D15666C00862CCD;
 					};
 				};
 			};
@@ -125,12 +177,20 @@
 			projectRoot = "";
 			targets = (
 				326CF7732D15666C00862CCD /* ValorantWiki */,
+				32C05B482D5F438E00D98B1D /* ValorantWikiTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		326CF7722D15666C00862CCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32C05B472D5F438E00D98B1D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -147,7 +207,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32C05B452D5F438E00D98B1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32C05B4E2D5F438E00D98B1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 326CF7732D15666C00862CCD /* ValorantWiki */;
+			targetProxy = 32C05B4D2D5F438E00D98B1D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		326CF7882D15666D00862CCD /* Debug */ = {
@@ -323,6 +398,40 @@
 			};
 			name = Release;
 		};
+		32C05B502D5F438E00D98B1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = x.ValorantWikiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ValorantWiki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ValorantWiki";
+			};
+			name = Debug;
+		};
+		32C05B512D5F438E00D98B1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = x.ValorantWikiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ValorantWiki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ValorantWiki";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -340,6 +449,15 @@
 			buildConfigurations = (
 				326CF7882D15666D00862CCD /* Debug */,
 				326CF7892D15666D00862CCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32C05B4F2D5F438E00D98B1D /* Build configuration list for PBXNativeTarget "ValorantWikiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32C05B502D5F438E00D98B1D /* Debug */,
+				32C05B512D5F438E00D98B1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

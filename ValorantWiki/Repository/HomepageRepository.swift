@@ -7,16 +7,24 @@
 
 import Foundation
 
-protocol HomepageRepositoryProtocol {
-    func fetchAgents(completion: @escaping (NetworkResult<AgentResponse>) -> Void)
+protocol HomepageRepositoryProtocol: AnyObject {
+    func fetchAgents()
+}
+
+protocol HomepageRepositoryDelegate: AnyObject {
+    func didFetchAgents(_ result: NetworkResult<AgentResponse>)
 }
 
 final class HomepageRepository: HomepageRepositoryProtocol {
-    func fetchAgents(completion: @escaping (NetworkResult<AgentResponse>) -> Void) {
+    weak var delegate: HomepageRepositoryDelegate?
+    
+    func fetchAgents() {
         NetworkManager.shared.makeRequest(
             endpoint: HomepageEndpoints.getAgents,
-            responseType: AgentResponse.self,
-            completion: completion
-        )
+            responseType: AgentResponse.self
+        ) { [weak self] result in
+            guard let self = self else { return }
+            self.delegate?.didFetchAgents(result)
+        }
     }
 }
