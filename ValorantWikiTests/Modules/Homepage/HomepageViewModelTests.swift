@@ -13,6 +13,7 @@ final class HomePageViewModelTests: XCTestCase {
     private var view: MockHomepageVC!
     private var repository: MockHomepageRepository!
     private var coordinator: MockHomepageCoordinator!
+    private var device: MockDevice!
     
     @MockData(resourceName: "MockAgentResponse.json")
     var mockAgentResponse: AgentResponse!
@@ -23,10 +24,13 @@ final class HomePageViewModelTests: XCTestCase {
         view = .init()
         coordinator = .init()
         repository = .init()
+        device = .init()
+        device.stubbedWidth = 100.0
         
         viewModel = .init(view: view,
                           repository: repository,
-                          coordinator: coordinator)
+                          coordinator: coordinator,
+                          device: device)
     }
     
     override func tearDown() {
@@ -34,6 +38,7 @@ final class HomePageViewModelTests: XCTestCase {
         repository = nil
         coordinator = nil
         view = nil
+        device = nil
     }
     
     func test_viewDidLoad_InvokesNecessaryMethods() {
@@ -117,5 +122,12 @@ final class HomePageViewModelTests: XCTestCase {
         viewModel.filteringAgents()
         
         XCTAssertTrue(view.reloadCollectionViewCallCount == 1)
+    }
+    
+    func test_sizeForItemAt_ReturnsCellSize() {
+        XCTAssertFalse(device.invokedScreenWidth)
+        let cellSize = viewModel.sizeForItemAt()
+        XCTAssertEqual(cellSize.width, 43.47826086956522)
+        XCTAssertEqual(cellSize.height, 250.0)
     }
 }

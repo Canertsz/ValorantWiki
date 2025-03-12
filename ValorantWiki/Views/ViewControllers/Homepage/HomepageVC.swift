@@ -23,7 +23,7 @@ final class HomepageVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var viewModel: HomepageViewModelProtocol! // private lazy?
+    var viewModel: HomepageViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,7 @@ final class HomepageVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Enter agent name",
                                                                              attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         
@@ -47,10 +48,6 @@ extension HomepageVC: HomepageViewProtocol {
         collectionView.dataSource = self
         collectionView.register(nibWithCellClass: AgentCell.self)
         searchBar.delegate = self
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: view.frame.width / 3,
-                                 height: view.frame.width / 2)
     }
     
     func reloadCollectionView() {
@@ -80,7 +77,7 @@ extension HomepageVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: view.frame.width / 2.3, height: 250)
+        viewModel.sizeForItemAt()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -94,6 +91,7 @@ extension HomepageVC: UISearchBarDelegate {
         viewModel.filteringAgents()
     }
     
+    // move logic to vm
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.resignFirstResponder()
