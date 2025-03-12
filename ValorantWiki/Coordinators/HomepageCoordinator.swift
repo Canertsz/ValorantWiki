@@ -37,6 +37,10 @@ final class HomepageCoordinator: HomepageCoordinatorProtocol {
         let viewModel = AgentDetailViewModel(agent: agent)
         viewController.viewModel = viewModel
         
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.hero.isEnabled = true
+        navigationController?.hero.isEnabled = true
+        
         navigationController?.pushViewController(viewController,
                                                  animated: true)
     }

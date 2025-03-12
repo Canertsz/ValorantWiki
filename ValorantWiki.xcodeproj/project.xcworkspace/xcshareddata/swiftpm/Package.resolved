@@ -1,6 +1,15 @@
 {
-  "originHash" : "ad75ae2d3b8d8b80d99635f65213a3c1092464aa54a86354f850b8317b6fa240",
+  "originHash" : "f70773a898669df6dedd60e6bb6b9d0ddc570cac995328adcc5d41f4864a30c1",
   "pins" : [
+    {
+      "identity" : "hero",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HeroTransitions/Hero.git",
+      "state" : {
+        "revision" : "670b81ed3d95f7183bbc009d0ec67c71506557b5",
+        "version" : "1.6.4"
+      }
+    },
     {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",

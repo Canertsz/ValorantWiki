@@ -45,6 +45,8 @@ final class AgentCell: UICollectionViewCell {
         if let imageURL = viewModel?.agentPortraitURL {
             agentImageView.kf.setImage(with: imageURL)
         }
+        
+        agentImageView.hero.id = "agentImage_\(viewModel?.agentDisplayName ?? "0")"
     }
     
     @IBAction func navigateToDetailButtonTapped(_ sender: Any) {

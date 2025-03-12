@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3285ED5B2D328AD100B7B0D2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3285ED5A2D328AD100B7B0D2 /* Kingfisher */; };
+		32880F272D81B0F700F59BBA /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = 32880F262D81B0F700F59BBA /* Hero */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32880F272D81B0F700F59BBA /* Hero in Frameworks */,
 				3285ED5B2D328AD100B7B0D2 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +111,7 @@
 			name = ValorantWiki;
 			packageProductDependencies = (
 				3285ED5A2D328AD100B7B0D2 /* Kingfisher */,
+				32880F262D81B0F700F59BBA /* Hero */,
 			);
 			productName = ValorantWiki;
 			productReference = 326CF7742D15666C00862CCD /* ValorantWiki.app */;
@@ -170,6 +173,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				3285ED592D328AD100B7B0D2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				32880F252D81B0F700F59BBA /* XCRemoteSwiftPackageReference "Hero" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 326CF7752D15666C00862CCD /* Products */;
@@ -473,6 +477,14 @@
 				minimumVersion = 8.1.3;
 			};
 		};
+		32880F252D81B0F700F59BBA /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -480,6 +492,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3285ED592D328AD100B7B0D2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		32880F262D81B0F700F59BBA /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32880F252D81B0F700F59BBA /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

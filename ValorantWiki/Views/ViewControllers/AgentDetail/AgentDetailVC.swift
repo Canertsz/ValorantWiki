@@ -33,6 +33,8 @@ final class AgentDetailVC: UIViewController {
         if let imageURL = viewModel?.agentPortraitURL {
             agentPortrait.kf.setImage(with: imageURL)
         }
+        
+        agentPortrait.hero.id = "agentImage_\(viewModel.agentDisplayName ?? "0")"
     }
 
 }

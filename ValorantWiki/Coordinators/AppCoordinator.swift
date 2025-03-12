@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 final class AppCoordinator: Coordinator {
     var navigationController: UINavigationController?
@@ -18,6 +19,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
+        navigationController?.hero.isEnabled = true
         let homepageCoordinator = HomepageCoordinator(navigationController: navigationController)
         homepageCoordinator.start()
     }
