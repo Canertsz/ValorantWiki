@@ -14,6 +14,7 @@ protocol HomepageViewModelProtocol: AgentCellViewModelDelegate {
     func agent(for indexPath: IndexPath) -> Agent?
     func sizeForItemAt() -> CGSize
     func searchAgents(with searchText: String)
+    func searchBarCancelButtonClicked()
 }
 
 private extension HomepageViewModel {
@@ -79,10 +80,17 @@ extension HomepageViewModel: HomepageViewModelProtocol {
         } else {
             filteredAgents = agents.filter { $0.displayName!.lowercased().starts(with: searchText.lowercased()) }
         }
+        
+        filteringAgents()
     }
     
     func filteringAgents() {
         view?.reloadCollectionView()
+    }
+    
+    func searchBarCancelButtonClicked() {
+        searchAgents(with: "")
+        view?.cancelSearch()
     }
 }
 

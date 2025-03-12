@@ -10,6 +10,7 @@ import UIKit
 protocol HomepageViewProtocol: AnyObject {
     func setupUI()
     func reloadCollectionView()
+    func cancelSearch()
 }
 
 private extension HomepageVC {
@@ -55,6 +56,11 @@ extension HomepageVC: HomepageViewProtocol {
             self.collectionView.reloadData()
         }
     }
+    
+    func cancelSearch() {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension HomepageVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -88,15 +94,10 @@ extension HomepageVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSo
 extension HomepageVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchAgents(with: searchText)
-        viewModel.filteringAgents()
     }
-    
-    // move logic to vm
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-        viewModel.searchAgents(with: "")
-        viewModel.filteringAgents()
+        viewModel.searchBarCancelButtonClicked()
     }
 }
 
